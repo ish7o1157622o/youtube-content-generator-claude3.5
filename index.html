@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Content AI Generator - AnupamTech_Art</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Optional: Google Fonts for a modern look (e.g., Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon (using a placeholder SVG for YouTube icon) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FF0000'%3E%3Cpath d='M10 15L15.19 12 10 9v6zm11.56-7.81c.14.7.22 1.48.22 2.27v2.44c0 .79-.08 1.57-.22 2.27-.14.7-.36 1.34-.63 1.9-.38.83-.83 1.55-1.42 2.15-.6.6-1.32 1.05-2.15 1.42-.56.27-1.2.49-1.9.63-.7.14-1.48.22-2.27.22h-2.44c-.79 0-1.57-.08-2.27-.22-.7-.14-1.34-.36-1.9-.63-.83-.38-1.55-.83-2.15-1.42-.6-.6-1.05-1.32-1.42-2.15-.27-.56-.49-1.2-.63-1.9-.14-.7-.22-1.48-.22-2.27V9.75c0-.79.08-1.57.22-2.27.14-.7.36-1.34.63-1.9.38-.83.83-1.55 1.42-2.15.6-.6 1.32-1.05 2.15-1.42.56-.27 1.2-.49 1.9-.63.7-.14 1.48-.22 2.27-.22h2.44c.79 0 1.57.08 2.27.22.7.14 1.34.36 1.9.63.83.38 1.55.83 2.15 1.42.6.6 1.05 1.32 1.42 2.15.27.56.49 1.2.63 1.9z'/%3E%3C/svg%3E" type="image/svg+xml">
+</head>
+<body class="light-theme">
+
+    <!-- Top Sticky Banner (728x90) -->
+    <div class="top-banner-ad">
+        <a href="https://abcd.html" target="_blank" aria-label="Top Banner Ad">
+            <!-- Replace with your actual banner image or ad code -->
+            <img src="assets/banner_728x90.png" alt="Top Banner Ad" class="ad-image large-ad">
+            <img src="assets/banner_320x50.png" alt="Top Banner Ad" class="ad-image small-ad">
+            <span class="ad-placeholder-text">Top Banner Ad (728x90 / 320x50)</span>
+        </a>
+    </div>
+
+    <!-- Header with Logo and Navigation -->
+    <header class="app-header">
+        <div class="header-left">
+            <a href="https://your-logo-link.com/" target="_blank" class="logo-link" aria-label="AnupamTech_Art Logo">
+                <img src="assets/logo.png" alt="AnupamTech_Art Logo" class="app-logo">
+                <span class="app-title">AnupamTech_Art</span>
+            </a>
+        </div>
+        <nav class="header-nav">
+            <a href="https://tools4dailyneedgamesme.odoo.com/" target="_blank" class="nav-link">Home</a>
+            <button id="theme-toggle" class="theme-toggle-button" aria-label="Toggle dark/light theme">
+                <span class="icon-light">☀️</span>
+                <span class="icon-dark">🌙</span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Second Sticky Banner (728x90) -->
+    <div class="secondary-banner-ad">
+        <a href="https://abcd.html" target="_blank" aria-label="Secondary Banner Ad">
+            <!-- Replace with your actual banner image or ad code -->
+            <img src="assets/banner_728x90.png" alt="Secondary Banner Ad" class="ad-image large-ad">
+            <img src="assets/banner_320x50.png" alt="Secondary Banner Ad" class="ad-image small-ad">
+            <span class="ad-placeholder-text">Secondary Banner Ad (728x90 / 320x50)</span>
+        </a>
+    </div>
+
+    <main class="container">
+        <!-- Inline URL Banner (320x50) -->
+        <section class="inline-banner-section card">
+            <div class="inline-banner-wrapper">
+                <a href="https://abcd.html" target="_blank" aria-label="Inline Banner Ad">
+                    <img src="assets/banner_320x50.png" alt="Small Banner Ad" class="ad-image inline-ad-img">
+                    <span class="ad-placeholder-text">Inline Banner (320x50)</span>
+                </a>
+                <a href="https://abcd.html" target="_blank" class="direct-link-text">Direct Link: https://abcd.html</a>
+            </div>
+        </section>
+
+        <section class="input-form-card card">
+            <h2>Generate YouTube Content</h2>
+            <form id="content-form">
+                <div class="form-group">
+                    <label for="video-topic">Video Topic / Title Idea</label>
+                    <input type="text" id="video-topic" placeholder="e.g., The Future of AI in Daily Life" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="video-length">Video Length (minutes)</label>
+                    <input type="number" id="video-length" min="1" max="120" value="10" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="video-description">Brief Description of the Video Content</label>
+                    <textarea id="video-description" rows="5" placeholder="e.g., This video explores how artificial intelligence will change our routines, work, and social interactions in the next decade." required></textarea>
+                </div>
+
+                <button type="submit" id="generate-button" class="action-button">Generate Content</button>
+            </form>
+        </section>
+
+        <section id="output-section" class="output-cards-container hidden">
+            <div id="loading-spinner" class="spinner hidden"></div>
+
+            <div class="output-card card">
+                <h3>YouTube Title <button class="tts-button" data-target="output-title" aria-label="Listen to title"><span class="play-icon">▶️</span><span class="stop-icon hidden">⏹️</span></button></h3>
+                <p id="output-title" class="output-text"></p>
+                <button class="copy-button" data-target="output-title">Copy Title</button>
+                <span class="copy-feedback"></span>
+            </div>
+
+            <div class="output-card card">
+                <h3>YouTube Video Description <button class="tts-button" data-target="output-description" aria-label="Listen to description"><span class="play-icon">▶️</span><span class="stop-icon hidden">⏹️</span></button></h3>
+                <pre id="output-description" class="output-text"></pre>
+                <button class="copy-button" data-target="output-description">Copy Description</button>
+                <span class="copy-feedback"></span>
+            </div>
+
+            <div class="output-card card">
+                <h3>Relevant SEO YouTube Tags <button class="tts-button" data-target="output-tags" aria-label="Listen to tags"><span class="play-icon">▶️</span><span class="stop-icon hidden">⏹️</span></button></h3>
+                <p id="output-tags" class="output-text"></p>
+                <button class="copy-button" data-target="output-tags">Copy Tags</button>
+                <span class="copy-feedback"></span>
+            </div>
+
+            <button id="export-button" class="action-button export-button">Download Full Content (.txt)</button>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-content">
+            <p>&copy; AnupamTech_Art 2025</p>
+            <p>About Us | Contact WhatsApp: <a href="https://wa.me/917011576220" target="_blank" class="footer-link">+917011576220 (message only)</a></p>
+            <div class="social-bar">
+                <a href="https://www.instagram.com/ish9810122087/" target="_blank" aria-label="Instagram" class="social-icon">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.886.388-1.614.933-2.316 1.634S.63 3.254.262 4.14C.07 4.905-.002 5.775.003 7.053.01 8.333 0 8.74 0 12s.015 3.26.072 4.547c.06 1.277.261 2.147.558 2.912.388.886.933 1.614 1.634 2.316s1.43 1.246 2.316 1.634c.765.297 1.634.498 2.912.558C8.74 23.988 9.14 24 12 24s3.26-.015 4.547-.072c1.277-.06 2.147-.261 2.912-.558.886-.388 1.614-.933 2.316-1.634s1.246-1.43 1.634-2.316c.297-.765.498-1.634.558-2.912.06-1.277.072-1.677.072-4.547s-.015-3.26-.072-4.547c-.06-1.277-.261-2.147-.558-2.912-.388-.886-.933-1.614-1.634-2.316S20.756.63 19.87.262C19.105.07 18.235-.002 16.957.003 15.677.01 15.26 0 12 0zm0 2.16c3.2 0 3.58.01 4.85.071 1.17.055 1.8.249 2.22.417.537.213.9.488 1.22.81.32.32.595.683.81 1.22.169.42.363 1.05.417 2.22.06 1.27.07 1.65.07 4.85s-.01 3.58-.071 4.85c-.055 1.17-.249 1.8-.417 2.22-.213.537-.488.9-.81 1.22-.32.32-.683.595-1.22.81-.42.169-1.05.363-2.22.417-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.071c-1.17-.055-1.8-.249-2.22-.417-.537-.213-.9-.488-1.22-.81-.32-.32-.595-.683-.81-1.22-.169-.42-.363-1.05-.417-2.22C2.16 15.26 2.16 14.88 2.16 12s.01-3.58.071-4.85c.055-1.17.249-1.8.417-2.22.213-.537.488-.9.81-1.22.32-.32.683-.595 1.22-.81.42-.169 1.05-.363 2.22-.417C8.42 2.16 8.8 2.16 12 2.16zm0 3.635c-3.4 0-6.16 2.76-6.16 6.16s2.76 6.16 6.16 6.16 6.16-2.76 6.16-6.16-2.76-6.16-6.16-6.16zm0 10.16c-2.208 0-4-1.792-4-4s1.792-4 4-4 4 1.792 4 4-1.792 4-4 4zm6.406-11.235c-.81 0-1.47.66-1.47 1.47s.66 1.47 1.47 1.47 1.47-.66 1.47-1.47-.66-1.47-1.47-1.47z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/ish9810122087" target="_blank" aria-label="Facebook" class="social-icon">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24h11.397V14.707h-3.858V10.74H12.72v-3.05c0-3.803 2.329-5.877 5.726-5.877 1.626 0 3.021.121 3.429.176v3.978l-2.359.001c-1.85 0-2.21.878-2.21 2.164v2.867h4.373l-.703 3.967h-3.67V24h6.062c.732 0 1.325-.593 1.325-1.325V1.325C24 .593 23.407 0 22.675 0z"/></svg>
+                </a>
+                <a href="mailto:ishmadaaan@gmail.com" aria-label="Gmail" class="social-icon">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Gmail</title><path d="M24 5.457v13.914c0 .281-.229.51-.51.51h-3.795c-.281 0-.51-.229-.51-.51V5.457c0-.281.229-.51.51-.51H23.49c.281 0 .51.229.51.51zm-7.795 0v13.914c0 .281-.229.51-.51.51h-3.795c-.281 0-.51-.229-.51-.51V5.457c0-.281.229-.51.51-.51h3.795c.281 0 .51.229.51.51zm-7.795 0v13.914c0 .281-.229.51-.51.51H2.51c-.281 0-.51-.229-.51-.51V5.457c0-.281.229-.51.51-.51H7.49c.281 0 .51.229.51.51zm4.846-3.816L12.43 0l-1.956 1.641-.758.636 2.052 1.722 2.052-1.722-.758-.636zm-3.076 0L9.354 0l-1.956 1.641-.758.636L8.692 4l2.052-1.722-.758-.636zm-3.076 0L6.278 0 4.322 1.641l-.758.636L5.616 4l2.052-1.722-.758-.636z"/></svg>
+                </a>
+                <a href="https://x.com/ishmadan" target="_blank" aria-label="Twitter/X" class="social-icon">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>X</title><path d="M18.901 1.153C20.686 0.16 22.612 0 24 0H0v24h8c0 4.418 3.582 8 8 8 3.864 0 7.159-2.736 7.822-6.491.139-.77.178-1.554.178-2.338C24 9.07 24 4.542 24 1.153zM16 20c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/ish-madaan-6956ba301/" target="_blank" aria-label="LinkedIn" class="social-icon">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.32-.472-2.215-1.656-2.215-1.12 0-1.785.753-2.087 1.48-.106.27-.128.647-.128 1.034v5.27H9.416s.04-9.697 0-10.741h3.554v1.517h.04c.5-.758 1.406-1.84 3.16-1.84 3.407 0 5.962 2.233 5.962 7.022v5.772zM4.495 2.146c-1.222 0-2.22 1-.2.222-2.222 2.222S2.222 4.495 2.222 4.495v16.143h3.553V4.495H4.495z"/></svg>
+                </a>
+            </div>
+        </div>
+        <!-- Footer Bottom Banner (728x90) -->
+        <div class="footer-banner-ad">
+            <a href="https://abcd.html" target="_blank" aria-label="Footer Banner Ad">
+                <img src="assets/banner_728x90.png" alt="Footer Banner Ad" class="ad-image large-ad">
+                <img src="assets/banner_320x50.png" alt="Footer Banner Ad" class="ad-image small-ad">
+                <span class="ad-placeholder-text">Footer Banner Ad (728x90 / 320x50)</span>
+            </a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+  
+</body>
+</html>
